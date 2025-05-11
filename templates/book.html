@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<!-- name - это название, которое мы потом подставим -->
+<title>name</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+        <h1>📖 Поиск книг</h1>
+        <form method="POST" class="search-form">
+            <input type="text" name="query" placeholder="🔎Введите название книги" required>
+            <button type="submit">Найти</button>
+        </form>
+        <div class="results">
+            {% for book in books %} <!--проверка есть ли такие книги-->
+                <div class="book"> <!--вывод всех книг-->
+                    {% if book.thumbnail %} <!--есть ли картинка-->
+                        <img src="{{ book.thumbnail }}" alt="Обложка">
+                    {% endif %}
+                    <h3>{{ book.title }}</h3>
+                    <p><strong>Автор:</strong> {{ book.authors }}</p>
+                    <p>{{ book.description[:300] }}...</p>
+                    <input type="checkbox" id="modal-{{ loop.index }}" class="modal-toggle" hidden>
+
+        <!--подробнее кнопка -->
+        <label for="modal-{{ loop.index }}" class="open-button">Подробнее</label>
+
+        <!-- Модальное окно, где потом должна быть оценка книги -->
+        <div class="modal">
+            <label for="modal-{{ loop.index }}" class="modal-overlay"></label>
+            <div class="modal-box">
+                <div class="side">
+                    {% if book.thumbnail %} <!--есть ли картинка-->
+                        <img src="{{ book.thumbnail }}" alt="Обложка">
+                    {% endif %}
+                    <div class="info">
+                        <p><strong>Категория:  </strong>{{book.categories}}</p>
+                        <p><strong>Количество страниц:  </strong>{{book.pageCount}}</p>
+                        <p><strong>Издательная система:  </strong>{{book.publisher}}</p>
+                        <p><strong>Дата публикации:  </strong>{{book.publishedDate}}</p>
+                    </div>
+                </div>
+                <h2>{{ book.title }}</h2>
+                <p><strong>Автор:</strong>{{ book.authors }}</p>
+                <p>{{ book.description }}</p>
+                <a href="#" target="_blank">Оценить</a>
+                <!-- Кнопка закрытия -->
+                <label for="modal-{{ loop.index }}" class="close-button">&times;</label>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+        </div>
+    </div>
+{% endblock %}
