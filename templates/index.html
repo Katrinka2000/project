@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<!-- name - это название, которое мы потом подставим -->
+<title>name</title>
+{% endblock %}
+<!-- здесь все, что отображается на главной страничке-->
+{% block body %}
+<div class="container">
+  <!--3 кнопки перехода-->
+        <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom" _msttexthash="2663375" _msthash="18"></h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon">
+          <svg class="bi" width="1em" height="1em" aria-hidden="true"><use xlink:href="#"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis" _msttexthash="3574337" _msthash="19">Книги</h3>
+          <p _msttexthash="128237876" _msthash="20">Здесь вы можете увидеть каталог книг.</p>
+          <a href="{{ url_for('book') }}" class="btn btn-primary" _msttexthash="2659059" _msthash="21"> Перейти </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon">
+          <svg class="bi" width="1em" height="1em" aria-hidden="true"><use xlink:href="#cpu-fill"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis" _msttexthash="3574337" _msthash="22">Жанры</h3>
+          <p _msttexthash="128237876" _msthash="23">Выберите книгу на интересующий вас жанр.</p>
+          <a href="{{ url_for('genre') }}" class="btn btn-primary" _msttexthash="2659059" _msthash="24"> Перейти </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon">
+          <svg class="bi" width="1em" height="1em" aria-hidden="true"><use xlink:href="#tools"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis" _msttexthash="3574337" _msthash="25">Писатели</h3>
+          <p _msttexthash="128237876" _msthash="26">Выберите писателей, которые вам интересны.</p>
+          <a href="{{ url_for('writer') }}" class="btn btn-primary" _msttexthash="2659059" _msthash="27"> Перейти </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--виджет с картинкой-->
+        <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom" _msttexthash="5031208" _msthash="28"></h2>
+
+      <div class="col">
+        <div class="card" style="">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold" _msttexthash="16922321" _msthash="41">«Читатель проживает тысячу жизней, прежде чем умрёт. Человек, который никогда не читает, переживает только одну»</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em" role="img" aria-label="Местоположение" _mstaria-label="114400" _mstHash="43"><use xlink:href="#geo-fill"></use></svg>
+                <small _msttexthash="1621087" _msthash="44">Джордж</small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em" role="img" aria-label="Длительность" _mstaria-label="116051" _mstHash="45"><use xlink:href="#calendar3"></use></svg>
+                <small _msttexthash="116727" _msthash="46">Мартин</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+{% endblock %}
